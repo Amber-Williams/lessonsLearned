@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="utf-8"/>
+        <!-- Latest compiled and minified CSS BOOTSTRAP April 3 2018-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <title> TITLE HERE</title>
+    </header>
+    <body>
+        <style>
+            .col-1 img{
+                margin:10px;
+            }
+            .col-2 ul {
+                margin:10px
+            }
+        </style>
+        
+         <div class="row">
+            <div class="col-sm-5 col-1" id="stepImg">
+                <img src="farm.gif" width="100%"/> 
+            </div>
+            <div class="col-sm-7 col-2">
+                <ul>
+                    <li><a id="step1" href="#" onclick="stepOne();"> Step 1 - Plant</a></li>
+                    <li><a id="step2" href="#" onclick="stepTwo();"> Step 2 - Harvest</a></li>
+                    <li><a id="step3" href="#" onclick="stepThree();"> Step 3 - Cleaning</a></li>
+                    <li><a id="step4" href="#" onclick="stepFour();"> Step 4 - Secret Process</a></li>
+                    <li><a id="step5" href="#" onclick="stepFive();"> Step 5 - Safety Testing</a></li>
+                    <li><a id="step6" href="#" onclick="stepSix();"> Step 6 - Product</a></li>
+                </ul>
+            </div>
+         </div>
+        
+        <script type="text/javascript">
+            function stepOne() {
+            document.getElementById('stepImg').innerHTML= '<img src="NeriumLeaf-img2.jpg" width="100%"/>';
+            }
+            function stepTwo() {
+            document.getElementById('stepImg').innerHTML= '<img src="flower-grass.gif" width="100%"/>';
+            }
+            function stepThree() {
+            document.getElementById('stepImg').innerHTML= '<img src="flower-grass.gif" width="100%"/>';
+            }
+            function stepFour() {
+            document.getElementById('stepImg').innerHTML= '<img src="DrN-3.JPG" width="100%"/>';
+            }
+            function stepFive() {
+            document.getElementById('stepImg').innerHTML= '<img src="flower-grass.gif" width="100%"/>';
+            }
+            function stepSix() {
+            document.getElementById('stepImg').innerHTML= '<img src="flower-grass.gif" width="100%"/>';
+            }
+        </script>
+    </body>
+</html>
