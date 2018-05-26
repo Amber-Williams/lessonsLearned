@@ -1,10 +1,12 @@
 
 /*****************NATIVE forEACH*********************/
 
+
 Array.prototype.myEach = function(callback) {
     for (var i = 0; i < this.length; i++)
         callback(this[i], i, this);
 };
+
 
 //tests
 var arr = ['biggy smalls', 'bif tannin', 'boo radley', 'hans gruber'];
@@ -41,6 +43,15 @@ console.log(goodT); // [ 'dic tanin', 'boo radley', 'hans gruber' ]
 console.log(squareRoot); // [ 1, 2, 3 ]
 
 /*****************NATIVE FILTER*************************/
+var arr46 = ["a", "abc", 1, 3, true];
+
+var onlyNum= arr46.filter(function(element){
+    if(typeof element == "number"){
+        return true;
+    } else {
+        return false;
+    }
+})
 
 Array.prototype.myFilter = function(callback, context) {
     arr = [];
