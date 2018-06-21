@@ -1,3 +1,5 @@
+let playerHandValue = 0;
+let dealerHandValue = 0;
 let handValue = 0;
 
 function drawCard(){
@@ -85,15 +87,25 @@ function drawCard(){
     console.log(card.value + " of " + card.suite)
 }
 
-function drawFirstCards(){
+function drawFirstCards(who){
     handValue=0;
     for(i=2; i>0; i--){
         drawCard();
     }
     console.log(handValue);
+    who=handValue;
+}
+function whoWon(){
+    if (dealerHandValue>playerHandValue){
+        console.log("Dealer Wins!");
+    } else if (dealerHandValue<playerHandValue){
+        console.log("Player Wins!");
+    } else{
+        console.log("error");
+    }
 }
 console.log("Dealer")
-drawFirstCards();
+drawFirstCards(dealerHandValue);
 
 console.log("Player")
-drawFirstCards();
+drawFirstCards(playerHandValue);
