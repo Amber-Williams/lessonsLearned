@@ -1,66 +1,111 @@
+let playerHandValue = 0;
+let dealerHandValue = 0;
+let handValue = 0;
 
-function findSuite(){
-    var randomSuite = Math.floor(Math.random()*4)+1;
+function drawCard(){
+    let card= {
+        suite:"",
+        value:0
+    }
+
+    const randomSuite = Math.floor(Math.random()*4)+1;
     switch (randomSuite){
         case 1:
-            console.log("Spades");
+            card.suite="Spades";
             break;
         case 2:
-            console.log("Hearts");
+            card.suite="Hearts";
             break;
         case 3:
-            console.log("Diamonds");
+            card.suite="Diamonds";
             break;
         case 4:
-            console.log("Clubs");
+            card.suite="Clubs";
             break;
-    }
-}
+        }
 
-function findValue(){
-    var randomValue = Math.floor(Math.random()*13)+1;
+
+    const randomValue = Math.floor(Math.random()*13)+1;
     switch (randomValue){
         case 1:
-            console.log("Ace - 1 or 11");
+            card.value=1;
+            if (handValue<11){
+                handValue+=11;
+            } else {
+                handValue+=1;
+            }
             break;
         case 2:
-            console.log("Two");
+            card.value=2;
+            handValue+=2;
             break;
         case 3:
-            console.log("Three");
+            card.value=3;
+            handValue+=3;
             break;
         case 4:
-            console.log("Four");
+            card.value=4;
+            handValue+=4;
             break;
         case 5:
-            console.log("Five");
+            card.value=5;
+            handValue+=5;
             break;
         case 6:
-            console.log("Six");
+            card.value=6;
+            handValue+=6;
             break;
         case 7:
-            console.log("Seven");
+            card.value=7;
+            handValue+=7;
             break;
         case 8:
-            console.log("Eight");
+            card.value=8;
+            handValue+=8;
             break;
         case 9:
-            console.log("Nine");
+            card.value=9;
+            handValue+=9;
             break;
         case 10:
-            console.log("Ten");
+            card.value=10;
+            handValue+=10;
             break;
         case 11:
-            console.log("Jack - 10");
+            card.value="Jack";
+            handValue+=10;
             break;
         case 12:
-            console.log("Queen - 10");
+            card.value="Queen";
+            handValue+=10;
             break;
         case 13:
-            console.log("King - 10");
+            card.value="King";
+            handValue+=10;
             break;
     }
+    console.log(card.value + " of " + card.suite)
 }
 
-findSuite();
-findValue();
+function drawFirstCards(who){
+    handValue=0;
+    for(i=2; i>0; i--){
+        drawCard();
+    }
+    console.log(handValue);
+    who=handValue;
+}
+function whoWon(){
+    if (dealerHandValue>playerHandValue){
+        console.log("Dealer Wins!");
+    } else if (dealerHandValue<playerHandValue){
+        console.log("Player Wins!");
+    } else{
+        console.log("error");
+    }
+}
+console.log("Dealer")
+drawFirstCards(dealerHandValue);
+
+console.log("Player")
+drawFirstCards(playerHandValue);
