@@ -1,6 +1,5 @@
-let playerHandValue = 0;
-let dealerHandValue = 0;
 let handValue = 0;
+let scores=[];
 
 function drawCard(){
     let card= {
@@ -87,25 +86,38 @@ function drawCard(){
     console.log(card.value + " of " + card.suite)
 }
 
-function drawFirstCards(who){
+function drawFirstCards(){
     handValue=0;
     for(i=2; i>0; i--){
         drawCard();
     }
+    scores.push(handValue);
     console.log(handValue);
-    who=handValue;
 }
-function whoWon(){
-    if (dealerHandValue>playerHandValue){
+function hit(){
+    handValue=0;
+    drawCard();
+    let hitValue=handValue+scores[0];
+    scores.shift();
+    scores.unshift(hitValue);
+    console.log(scores);
+}
+
+//Scores:[Player, Dealer]
+
+function stand(){
+    console.log(scores)
+    if (scores[0]<scores[1]){
         console.log("Dealer Wins!");
-    } else if (dealerHandValue<playerHandValue){
+    } else if (scores[0]>scores[1]){
         console.log("Player Wins!");
     } else{
-        console.log("error");
+        console.log("Error");
     }
 }
-console.log("Dealer")
-drawFirstCards(dealerHandValue);
-
 console.log("Player")
-drawFirstCards(playerHandValue);
+drawFirstCards();
+
+console.log("Dealer")
+drawFirstCards();
+
