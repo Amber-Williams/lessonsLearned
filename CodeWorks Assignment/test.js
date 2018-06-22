@@ -23,7 +23,6 @@ function drawCard(){
             break;
         }
 
-
     const randomValue = Math.floor(Math.random()*13)+1;
     switch (randomValue){
         case 1:
@@ -107,12 +106,18 @@ function hit(){
 
 function stand(){
     console.log(scores)
-    if (scores[0]<scores[1]){
-        console.log("Dealer Wins!");
-    } else if (scores[0]>scores[1]){
-        console.log("Player Wins!");
+    if(scores[0]>21){
+        console.log("Player Busts - Dealer Wins!")
+    } else if (scores[1]>21){
+        console.log("Dealer Busts - Player Wins!")
     } else{
-        console.log("Error");
+        if (scores[0]<scores[1]){
+            console.log("Dealer Wins!");
+        } else if (scores[0]>scores[1]){
+            console.log("Player Wins!");
+        } else{
+            console.log("Error");
+        }
     }
 }
 console.log("Player")
