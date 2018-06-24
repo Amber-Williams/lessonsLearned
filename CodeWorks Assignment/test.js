@@ -93,6 +93,7 @@ function drawFirstCards(){
     scores.push(handValue);
     console.log(handValue);
 }
+
 function hit(){
     handValue=0;
     drawCard();
@@ -102,10 +103,23 @@ function hit(){
     console.log(scores);
 }
 
+function computerHit(){
+    handValue=0;
+    drawCard();
+    let hitValue=handValue+scores[1];
+    scores.pop();
+    scores.push(hitValue);
+    console.log(scores);
+}
+
 //Scores:[Player, Dealer]
 
 function stand(){
     console.log(scores)
+    if(scores[1]<17){
+        computerHit();
+        console.log(scores)
+    }
     if(scores[0]>21){
         console.log("Player Busts - Dealer Wins!")
     } else if (scores[1]>21){
@@ -115,6 +129,8 @@ function stand(){
             console.log("Dealer Wins!");
         } else if (scores[0]>scores[1]){
             console.log("Player Wins!");
+        } else if(scores[0]==scores[1]){
+            console.log("Tie!");
         } else{
             console.log("Error");
         }
@@ -125,4 +141,5 @@ drawFirstCards();
 
 console.log("Dealer")
 drawFirstCards();
+
 
