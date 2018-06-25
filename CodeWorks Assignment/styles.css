@@ -1,0 +1,11 @@
+.card{
+    border:2px solid black;
+    height:60px;
+    width:40px;
+}
+.card-value{ 
+    margin-left:2px;
+}
+.suite-value{
+    margin-left:2px;
+}

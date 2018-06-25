@@ -3,22 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <script src="test.js"></script>
   <title>JS Bin</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="test.js"></script>
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-  <script>
-    $(function(){
+  Computer:
+  <div id="computerScore"></div>
+  <div id="computerDiv"></div>
+  Player:
+  <div id="playerScore"></div>
+  <div id="playerDiv"></div>
 
-     // jQuery methods go here...
-
-    });
-  </script>
-  <br/>
-  <br/>
-  <br/>
-  <button onclick="hit()">Hit</button>
+  <button onclick="hit(true)">Hit</button>
   <button onclick="stand()">Stand</button>
 </body>
 </html>
