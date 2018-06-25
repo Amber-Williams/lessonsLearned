@@ -1,17 +1,18 @@
-$( function() {
+//Needed to wrap full code in document.ready since code was loading before page
+$( function () {
     let handValue = 0;
     //Scores:[Player, Dealer]
     let scores=[0,0];
-    var Pdiv = document.getElementById('playerDiv');
-    var Cdiv = document.getElementById('computerDiv');
+
     let card= {
             suite:"",
             value:0
         }
-
     let isGameOver = false;
-
+    
+    //Creates card object with randomized suite and card value
     function drawCard(currentHandValue){
+        //Below randomizes card suite to generate using formula to create number 1-4
         const randomSuite = Math.floor(Math.random()*4)+1;
         switch (randomSuite){
             case 1:
@@ -28,6 +29,7 @@ $( function() {
                 break;
             }
 
+        //Below randomizes card value to generate using formula to create number 1-13
         const randomValue = Math.floor(Math.random()*13)+1;
         switch (randomValue){
             case 1:
@@ -87,69 +89,8 @@ $( function() {
                 handValue+=10;
                 break;
         }
-        console.log(card.value + " of " + card.suite);
     }
-
-    function startGame(){
-
-        function drawInitialCards(isPlayer) {
-            handValue=0;
-            for(i=2; i>0; i--){
-                if(isPlayer) {
-                    drawCard(scores[0]);
-                    scores[0] = handValue;
-                    createCardDiv(card.value,card.suite,true);
-                } else {
-                    drawCard(scores[1]);
-                    scores[1] = handValue;
-                    createCardDiv(card.value,card.suite,false);                    
-                }
-            }
-
-
-            console.log(handValue);
-        }
-        drawInitialCards(true);
-        drawInitialCards(false);   
-        
-        if(scores[0] == 21 || scores[1] == 21) {
-            isGameOver = true;
-        }
-    }
-
-    function hit(isPlayer) {
-
-        if(isGameOver) {
-            return;  
-        }
-
-        handValue=0;
-        if(isPlayer) {
-            drawCard(scores[0]);
-            
-            scores[0] += handValue; 
-
-            createCardDiv(card.value,card.suite,true);
-
-            if(scores[0] >= 21) {
-                stand();
-            }
-        }
-        else {
-            drawCard(scores[1]);
-            
-            scores[1] += handValue; 
-
-            createCardDiv(card.value,card.suite,false);
-            
-        }
-        console.log(scores);
-    }
-
-    document.hit = hit;
-    document.stand = stand;
-
-
+    //Below generates a HTML and CSS built card based on card object key values then appends them as they are drawn
     function createCardDiv(value, suite, isPlayer) {
         let cardDiv = $('<div>', { class: "card",
                                 });
@@ -167,6 +108,7 @@ $( function() {
                                         color:'red'
                                     }
                                 });
+
         if(suite=="♣" || suite=="♠"){
             suiteDiv = $('<div>', { class: "suite-value",
                                     text: suite,
@@ -192,35 +134,104 @@ $( function() {
         }
     }
 
+
+    function startGame(){
+        isGameOver=false;
+        //Clears out previous game cards
+        $('#computerDiv').html("");
+        $('#playerDiv').html("");
+        $('#gameOver').html("");
+        //Deals two cards to Player and Computer
+        function drawInitialCards(isPlayer) {
+            handValue=0;
+            
+            for(i=2; i>0; i--){
+                if(isPlayer) {
+                    drawCard(scores[0]);
+                    scores[0] = handValue;
+                    createCardDiv(card.value,card.suite,true);
+                    $('#playerScore').html(scores[0]); 
+                } else {
+                    drawCard(scores[1]);
+                    scores[1] = handValue;
+                    createCardDiv(card.value,card.suite,false);  
+                    $('#computerScore').html(scores[1]); 
+                }
+            }
+        }
+        drawInitialCards(true);
+        drawInitialCards(false);   
+
+        //Below ends game if Player or Computer get 21 on intial draw
+        if(scores[0] == 21 || scores[1] == 21) {
+            isGameOver = true;
+            if(scores[0]==21){
+                $('#gameOver').html("Player Wins!");
+            } else {
+                $('#gameOver').html("Computer Wins!");
+            }
+        }
+    }
+
+    function hit(isPlayer) {
+        //If gameover is true turn the hit button off
+        if(isGameOver) {
+            return;  
+        }
+        handValue=0;
+        if(isPlayer) {
+            drawCard(scores[0]);
+            scores[0] += handValue; 
+            createCardDiv(card.value,card.suite,true);
+            $('#playerScore').html(scores[0]);
+            //If player busts run submit game through stand function
+            if(scores[0] >= 21) {
+                stand();
+            }
+        } else {
+            drawCard(scores[1]);
+            scores[1] += handValue; 
+            createCardDiv(card.value,card.suite,false);
+            $('#computerScore').html(scores[1]); 
+        }
+    }
+
+    //Below needs to be here to move hit, stand and startGame funtions globally outside jQuery document.ready scope
+    document.hit = hit;
+    document.stand = stand;
+    document.startGame = startGame;
+
+
     function stand(){
+        //If gameover is true turn the stand button off
         if(isGameOver) {
             return;
         }
-        console.log(scores)
         // computer turn
         while(scores[1]<17){
             hit(false);
+            $('#computerScore').html(scores[1]); 
             console.log(scores)
         }
+        //Gameover switch is flipped on disabiling buttons
         isGameOver = true;
         if(scores[0]>21){
-            console.log("Player Busts - Dealer Wins!")
+            $('#gameOver').html("Player Busts - Dealer Wins!");
         } else if (scores[1]>21){
-            console.log("Dealer Busts - Player Wins!")
+            $('#gameOver').html("Dealer Busts - Player Wins!");
         } else{
             if (scores[0]<scores[1]){
-                console.log("Dealer Wins!");
+                $('#gameOver').html("Dealer Wins!");
             } else if (scores[0]>scores[1]){
-                console.log("Player Wins!");
+                $('#gameOver').html("Player Wins!");
             } else if(scores[0]==scores[1]){
-                console.log("Tie!");
+                $('#gameOver').html("Tie!");
             } else{
-                console.log("Error");
+                $('#gameOver').html("Error");
             }
         }
     }
 
     startGame();
-    console.log( "ready!" );
 });
 

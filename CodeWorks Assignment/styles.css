@@ -1,11 +1,65 @@
+body{
+    background-color: #458284;
+    font-family: 'Amatic SC', serif;
+    color:white;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.scores{
+    color:white;
+    font-size:2em;
+}
+h1{
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 4em;
+    text-align: center;
+    margin: 10px;
+}
+h2{
+    margin:0;
+}
 .card{
-    border:2px solid black;
-    height:60px;
-    width:40px;
+    border: 1px solid black;
+    height: 100px;
+    width: 70px;
+    background-color: white;
+    display: inline-flex;
+    font-size: 1.3em;
+    margin: 2px;
+    border-radius: 4px;
+    -webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: subpixel-antialiased;
 }
 .card-value{ 
     margin-left:2px;
 }
 .suite-value{
     margin-left:2px;
+}
+.gameOverText{
+    font-size: 3em;
+    text-align: center;
+    font-weight: bold;
+}
+
+button{
+    background-color: #EAC499;
+    border: 3px #EAC499 solid;
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.start-btn{
+    background-color: #65A296;
+    padding-left: 26px;
+    padding-right: 26px;
+    border: 3px #65A296 solid;
+}
+.stand-btn{
+    background-color: #D4A674;
+    border: 3px #D4A674 solid;
 }
