@@ -1,14 +1,15 @@
 //Needed to wrap full code in document.ready since code was loading before page
 $( function () {
+    //Global variables
     let handValue = 0;
     //Scores:[Player, Dealer]
     let scores=[0,0];
-
     let card= {
             suite:"",
             value:0
         }
     let isGameOver = false;
+
     
     //Creates card object with randomized suite and card value
     function drawCard(currentHandValue){
@@ -144,7 +145,6 @@ $( function () {
         //Deals two cards to Player and Computer
         function drawInitialCards(isPlayer) {
             handValue=0;
-            
             for(i=2; i>0; i--){
                 if(isPlayer) {
                     drawCard(scores[0]);
