@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>BlackJack</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Cabin+Sketch" rel="stylesheet">
+  <script src="test.js"></script>
+</head>
+<body>
+  <h1>BlackJack</h1>
+  <h2>Computer:</h2>
+  <div id="computerScore" class="scores"></div>
+    <div class="cardWrapper">
+  <div id="computerDiv"></div>
+  <div id="blankCardHere"></div>
+        </div>
+  <h2>Player:</h2>
+  <div id="playerScore" class="scores"></div>
+  <div id="playerDiv"></div>
+
+  <div id="gameOver" class="gameOverText"></div>
+
+  <button onclick="hit(true)">HIT</button>
+  <button class="stand-btn" onclick="stand()">STAND</button>
+  <br/>
+  <button class="start-btn"onclick="startGame()">NEW GAME</button>
+</body>
+</html>
