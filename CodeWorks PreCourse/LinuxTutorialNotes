@@ -1,0 +1,28 @@
+https://ryanstutorials.net/linuxtutorial 
+
+The Terminal
+________________________________
+
+2. NAVIGATION
+pwd
+ stands for Print Working Directory, this tells us what our current directory is.
+
+ls
+ stands for list, this tells us our current location.
+
+
+Paths -
+A) Absolute Path: specifies a specific file or directory in relation to the root directory
+B) Relative Path: Specifies a location in relation to where we currently are in the system
+C) ~ : called tilde; can refer to a path such as /home/user/Documents or using tilde ~/Documents
+D) . : called dot; seems a lot like tilde
+E) .. : called dot dot; used to go back up the hierarchy closer to the root folder (e.g. ../../ )
+
+
+cd
+ stands for change directory, it is used to go into a defined location using cd[location]. If you just use cd on its own it will take you back to your home directory.
+
+
+
+3. MORE ABOUT FILES
+
