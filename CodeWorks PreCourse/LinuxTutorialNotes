@@ -26,3 +26,155 @@ cd
 
 3. MORE ABOUT FILES
 
+Everything is a file, be it your keyboard, a text file or even your monitor
+
+File extension
+ (E.g.  .txt  .ai  .html)
+
+file[path]
+ Is a command to find out which type of file it is
+
+Linux is case sensitive
+
+If there are spaces in a file name, to access it you need to use Quotes("" | '') or Escape Characters ( \ )
+
+Hidden files
+ A) To create a hidden file:  name it with a dot (.) at the beginning
+ B) To show hidden files:  ls -a   command will list the contents of a directory and include hidden files (-a   command stands for all)
+
+
+4. MANUAL PAGES
+
+man <command to look up>
+  Command to show what commands are available 
+
+q 
+  Command to quit out from manual pages
+
+man -k <search term>
+  Command to help search through keywords in a manual
+
+
+5. FILE MANIPULATION
+
+mkdir [options] <directory>
+  A)Command to make a new directory
+  B) -p  command after mkdir makes parent directories as needed
+  C) -v  command after mkdir tells us what we are doing each step
+
+rmdir [options] <directory>
+  A)Command to remove a directory
+  B) THERE IS NO UNDO!!!
+  C) The directory must be empty to remove it
+
+rm [options] <file>
+  A) Command to remove a file and non empty Directories
+  B) THERE IS NO UNDO!!!
+
+touch [options] <filename>
+  A) Command to create a new blank file
+  B) Can also modify access and modify file times
+
+
+cp [options] <source> <destination>
+  A) Command used to copy a file or directory
+  B) To copy a directory you use -r  command 
+
+
+mv [options] <source> <destination>
+  A) Command to move a file or directory
+  B) Can move a directory WITHOUT the -r  command
+  C) Can also be used to rename files or directories
+
+
+6. Vi TEXT EDITOR
+
+Vi
+  A) Is a command line text editor like Notepad
+  B) Has 2 modes:
+	I) Insert mode - input or enter content into the file
+	II) Edit Mode  - move around the file, deleting/copying/searching/replacing/saving etc.
+
+
+vi <file>
+  A)Command to run Vi text editor
+  B) Will automatically enter edit mode
+  C) push   i   to enter insert mode and create content
+  D) push  esc  to exit back to edit mode
+  E) Saving and Exiting:
+	I:   ZZ (note:capitals) - save and exit
+	II:  :q!  - discard all changes, since the last save, and exit
+	III:  :w  - save file but don't exit
+	IV:   :wq - save and exit
+
+ 
+cat <file> 
+  A) view a files contents
+
+
+***Had more notes on navigating the text editor I wouldn't use
+
+
+
+7. WILDCARDS
+
+* - represents zero or more characters
+? - represents a single character (e.g. ???I* is looking for 4th letter I)
+
+Seems like placement of * can be used before <file/directory> and after in different cases
+ - file name <file>*
+ - file extension *<.ext>
+
+[] 
+  - represents a range of characters
+  - ls [ac]*   is every file whose name begins with a or c
+  - ls [a-c]*  is every file whose name begins with a through c
+  - ls *[0-9]* is every file that contains 0-9
+  - ls [^a-z]* is every file that does NOT contain a-z (***don't understand this one)
+
+
+
+8. PERMISSIONS
+
+
+r
+  Command read - you may view the contents of the file.
+
+w
+  Command write - you may change the contents of the file.
+
+x
+  Command execute - you may execute or run the file if it is a program or script.
+
+
+owner
+  Command - a single person who owns the file. (typically the person who created the file but ownership may be granted to some one else by certain users)
+
+group
+  Command - every file belongs to a single group.
+
+others
+  Command - everyone else who is not in the group or the owner.
+
+
+ls -l [path]
+  A)Command to view permissions
+  B) What we get:
+	I: first character identifies the file type ( dash is normal file || d is directory)
+	II: following 3 character represent the permissions for the owner( r/w/x)
+	III: following 3 char. Represent the permissions for the group
+	IV: finally the last 3 char. Represent the permissions for others
+
+chmod [permissions] [path]
+  A)Command to change permissions
+  B)[ugoa] - user (or owner), group, others, all
+  C) granting or revoking the permission - indicated with either a plus ( + ) or minus ( - )
+  D)read ( r ), write ( w ) or execute ( x )
+  E) There is a short hand in binary if you want to learn it
+
+
+The root user, usually only 2 of these who may change all permissions of a file or directory
+
+For home directories, its common practice to only give yourself permissions and the rest group/others no permissions
+
+

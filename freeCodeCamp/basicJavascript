@@ -1,0 +1,32 @@
+1. Boolean Values (true, false) 
+  - are basically little on-off switches
+  - example below:   illustrates how you can use a parameter to create an on/off switch
+
+
+function test (myCondition) {
+  if (myCondition) {
+     return "It was true";
+  }
+  return "It was false";
+}
+test(true);    // returns "It was true"
+test(false);  // returns "It was false"
+
+
+//END Boolean on off switch example 
+
+
+2. Equality Operator (==) V.S. Strict Equality (===)
+  - Equality operator will work to being compared to a string vs a number (e.g. 1 == "1" is true)
+  - Strict Equality will strictly only work if similar types (e.g. 1 === "1" is false)
+
+
+
+3. Typeof
+  - typeof <variable> can help determine what the variable type is(eg string/number/boolean)
+
+
+
+
+
+
