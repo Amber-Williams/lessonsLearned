@@ -238,3 +238,127 @@ https://www.debuggex.com/   -  online tool to experiment with regular expression
 ^ - matches the beginning of the line.
 $ - matches the end of the line.
 
+
+
+11. PIPING AND REDIRECTION (*** Need to study more on this section)
+
+STDIN (0) - Standard input (data fed into the program)
+STDOUT (1) - Standard output (data printed by the program, defaults to the terminal)
+STDERR (2) - Standard error (for error messages, also defaults to the terminal)
+
+> 
+ A)Command that indicates to send terminal's output into a saved file instead of printed to the screen 
+ B)used like:   ls > fileNameYouWish  
+ C)If we save to a file name that already exists, its contents will be CLEARED and the new output saved to it
+ 
+>>
+ Command that APPENDS new terminal output into a saved file...instead of printing to the screen
+
+<
+ ***Command that sends data opposite from >
+
+<number>>
+  A) e.g. 3> or 4>
+  B)***Command that will redirect that stream
+
+|
+  Command to send data from one program to another
+
+
+12. PROCESS MANAGEMENT
+
+top
+  Command that gives us a snapshot of what is currently happening on the system
+
+ps [aux]
+  Command that will show you just the processes running in your current terminal
+  + Aux argument will show a complete system view which is a bit more helpful
+
+Finding out a process' ID (PID) - using (  ps aux | grep 'firefox'  )
+
+kill [signal] <PID>
+  Command that will kill a process using specific PID
+
+
+jobs
+  Command that lists currently running background jobs for us
+
+sleep <number of seconds>
+  A)***Command that will run the program in the background and then we can continue working
+  B)Adding an ampersand (&) at the end of the command we are telling the terminal to run this process in the background.
+
+fg <job number>
+  Command that stands for foreground to bring background processes into the foreground
+
+
+
+13. BASH SCRIPTING
+
+Bash scripts are handy if a particular task is done often, or it is repetitive, then a script can be a useful tool.
+
+Bash script is read and acted upon by an INTERPRETER.
+
+Bash script scripts = terminal commands on a command line
+
+shebang: first two characters of the first line in a script (after this will be the path to the interpreter)
+
+which <program>
+  Command to find out where our interpreter is located (useful for scripts)
+
+#
+ put this into scripts
+ This helps comment code out...useful to add your name, date and what the script does in each beginning of a script
+
+
+Linux is an extension-less system (meaning when you call files you don't need to add their dot extensions)
+
+./<file>
+  Command to look for file/script in current directory
+
+chmod 755 <script>
+  Command to ensure script is set up right and you have permission to execute (you don't have this by default)
+
+Variables
+  A) is a container for simple piece of data
+  B) <variable name>='value'
+  C) e.g. name='Amber'   (to call use the $ symbol ->  $name  )
+
+Command line arguments
+   $0 - The name of the script.
+   $1 - $9 - Any command line arguments given to the script. $1 is the first argument, $2 the second and so on.
+   $# - How many command line arguments were given to the script.
+   $* - All of the command line arguments.
+
+
+backticks(`)
+  A)It is possible to save the output of a command to a variable 
+  B)e.g.  lines=`cat $1 | wc -l`
+
+You can add if statements to a script
+
+
+
+BONUS MATERIAL
+
+Task scheduling
+
+***** command to execute
+  A)Where the *'s represent (in order from left to right:
+
+    Minutes (0 - 59)
+    Hours (0 - 23)
+    Day of Month (1 - 31)
+    Months (1 - 12)
+    Day of week (0 - 7) (0 and 7 are Sunday)
+
+  B)e.g. 30 3 * * 4 /bin/myscript.sh   ->  Execute myscript.sh every Thursday at 3:30am
+
+
+crontab -l
+  Command that views tasks that you currently have scheduled 
+
+crontab -e
+  Command to edit your scheduled tasks in your default text editor
+
+
+
