@@ -1,0 +1,11 @@
+https://www.youtube.com/watch?v=IM8eTD01UE8
+(SVG Tutorial: With CSS Animation)
+
+Changeable attributes
+  A) Fill color 
+  B) size via Transform
+
+Transition smoothly using
+  .css-name{
+	transition: all #s}
+
