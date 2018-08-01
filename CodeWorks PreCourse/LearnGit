@@ -7,3 +7,78 @@ Git is a Version Control System
 Git VS GitHub
 (GitHub is a remote repository and only stores code)
 
+-----https://learngitbranching.js.org/-----
+Branches
+
+Rebaseing
+- interactive rebase means using the rebase command with the  -i  option: will open u a UI of what the commit tree looks like
+
+Checkout
+
+Commit
+
+HEAD
+-symbolic name for the currently checked out commit...its essentially what commit you're working on top of. Most recent commit
+-Detaching HEAD
+
+git log
+- to see hashes or "commit tree"
+
+Relative refs/Relative commits
+
+^ 
+- operator to move through the commit tree level by level
+- ^^^ moves three levels back
+
+~
+- operator takes in a trailing number that specifies the number of parents you would like to ascend (short hand for using ^)
+
+E.g.  Git branch -f master HEAD~3
+- (-f) directly reassign a branch to a commit tree location
+
+reset
+- works to undo work locally for individual use
+
+Revert
+- works to undo work remotely for teams
+
+cherry-pick
+- copy a series of commits below your current location
+- Works great when you know which commits you want and their corresponding hashes
+
+
+
+-------------------------------------------
+Steps to set up Git and link it to GitHub
+1. Download git here - https://git-scm.com/download/mac
+2. Create GitHub account if you don't have one
+3. In the terminal type:
+      git config --global user.name "Your name here"
+      git config --global user.email "youremail@yahoo.com"
+4. Getting past applying password after each commit:
+     A) check for SSH key in terminal:   ls ~/.ssh
+     B) if you get "no such file or directory" you need to create an SSH key
+     C) Creating an SSH Key:    ssh-keygen -t rsa -b 4096 -C "youremail@yahoo.com"
+	- Can name file...but just push enter for the following instructions to work
+	- This will as for a passphrase you can leave empty for no passphrase
+     Ca) GitHub documentation added extra step called adding your SSH Key to the ssh-agent: (https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+		eval "$(ssh-agent -s)"          
+		[enter] then.     
+		ssh-add -K ~/.ssh/id_rsa
+     D) Copy the SSH Key:
+		i) Windows:  clip < ~/.ssh/id_rsa.pub
+		ii) Linux: sudo apt-get install xclip
+       				 xclip -sel clip < ~/.ssh/id_rsa.pub
+		iii) Mac: pbcopy < ~/.ssh/id_rsa.pub
+     E) This will copy the SSH key to your paste keyboard, go to log into GitHub -> Settings -> SSH and GPG keys -> Add New key -> paste copied key into key box and add whatever title of your choosing (I chose what specified computer I was working from as a title)
+
+     (Optional) If you already have SSH Key use the file name in place of the id_rsa.pub file
+
+
+Link to githubs setting up SSH Key documentation - https://help.github.com/articles/connecting-to-github-with-ssh/
+
+
+*** Cant get this to link together
+
+
+
