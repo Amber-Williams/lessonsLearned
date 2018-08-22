@@ -11,9 +11,72 @@ Transition smoothly using
 
 
 
-https://www.youtube.com/watch?v=jgw82b5Y2MU&list=PL4cUxeGkcC9iGYgmEd2dm3zAKzyCGDtM5
-https://github.com/iamshaunjp/css-animations-playlist
+
+Working files for CSS Animations Tutorial below:
+	 https://github.com/iamshaunjp/css-animations-playlist
 
 https://www.youtube.com/watch?v=PH35-BDak0M&index=2&list=PL4cUxeGkcC9iGYgmEd2dm3zAKzyCGDtM5
 
+==Transitions==
+
+```css
+img{
+    /*This moves item left (negative) and right (positive) on x-axis*/
+    transform: translateX();
+    /*This moves item up (negative) and down (positive) on y-axis*/
+    transform: translateY();
+    /*This moves item on x and y axes*/
+    transform: translate(x,y);   
+    
+    /*becomes larger or smaller based on X-times size...you can also do sizing through x and y axes too*/
+    transform: scale();
+    
+    /*becomes rotates based on xdeg - (90deg)...you can also rotate through x and y axes too*/
+    transform: rotate();
+    
+    /*TIPS: If you add rotate and translate together the center of rotation is located from the starting point*/
+}
+```
+
+https://www.youtube.com/watch?v=oYlJR4Le228&list=PL4cUxeGkcC9iGYgmEd2dm3zAKzyCGDtM5&index=3
+
+```css
+.circle {
+    background:white;
+    /*transition -> transformation length timing*/
+    transition: 1s;
+    OR
+    /*can add length timing per changed element like so...*/
+    transition: background 1s, transform 0.3s;
+    OR
+    /*can add a delay time after length timing*/
+    transition: background 1s, transform 0.3s 1s:
+    OR 
+   /*can add how the length timing is eased in*/
+    transition: background 1s, transform 0.3 1s ease;
+}
+.circle:hover {
+    background: pink;
+    /*transform added features*/
+    transform:rotate(360deg);
+}
+```
+
+https://www.youtube.com/watch?v=PjR97QzOrJM&list=PL4cUxeGkcC9iGYgmEd2dm3zAKzyCGDtM5&index=4
+
+==KeyFrames==
+
+```css
+.item {
+    position:absolute;
+    top:0;
+    left:0;
+    animation-name: animationName;
+    animation-duration:3s;
+}
+@keyframes animationName {
+    from{transform: translateX(0)}
+    to{ transform: translateX(500px)}
+}
+```
 
