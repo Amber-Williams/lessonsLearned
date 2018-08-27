@@ -80,3 +80,21 @@ https://www.youtube.com/watch?v=PjR97QzOrJM&list=PL4cUxeGkcC9iGYgmEd2dm3zAKzyCGD
 }
 ```
 
+https://www.youtube.com/watch?v=irJXZnA3g5U&list=PL4cUxeGkcC9iGYgmEd2dm3zAKzyCGDtM5&index=5
+
+```css
+.item {
+    position:absolute;
+    top:0;
+    left:0;
+    animation-name: animationName;
+    animation-duration:3s;
+    /*creates item to stay at end of animation frame*/
+    animation-fill-mode:forwards;
+}
+@keyframes animationName {
+    from{transform: translateX(0)}
+    to{ transform: translateX(500px)}
+}
+```
+
