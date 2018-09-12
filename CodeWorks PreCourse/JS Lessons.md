@@ -79,3 +79,74 @@ updateRecords(5439, "artist", "ABBA");
 
 
 
+Nesting For Loops
+
+```javascript
+function multiplyAll(arr) {
+  var product = 1;
+  // Only change code below this line
+  for(var i = 0; i < arr.length; i++){
+    console.log("level i: "+arr[i]);
+    for(var j = 0; j < arr[i].length; j++){
+      console.log("level J: "+arr[i][j]);
+      product *= arr[i][j];
+   }
+  }
+  // Only change code above this line
+  console.log(product)
+  return product;
+}
+
+// Modify values below to test your code
+multiplyAll([[1,2],[3,4],[5,6,7]]); //Answer: 5040
+multiplyAll([[1],[2],[3]]); //Answer: 6
+```
+
+Conditional Operator
+
+-The conditional operator, also called the ternary operator, can be used as a one line if-else expression.
+
+```javascript
+// The syntax is
+// condition ? statement-if-true : statement-if-false;
+
+// so this
+function findGreater(a, b) {
+  if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+
+//turns into that
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater";
+}
+```
+
+Multiple conditional Operators
+
+-You can also chain them together to check for multiple conditions. 
+
+```javascript
+//This
+function findGreaterOrEqual(a, b) {
+  if(a === b) {
+    return "a and b are equal";
+  }
+  else if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+
+//Turns into that
+function findGreaterOrEqual(a, b) {
+  return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
+}
+```
+
