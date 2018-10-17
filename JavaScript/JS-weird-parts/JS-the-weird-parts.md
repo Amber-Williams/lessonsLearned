@@ -21,4 +21,36 @@ Global Object (window object [in browsers]) = 'this'
 
 #### The Execution Context - Creation and Hoisting
 
-Other coding languages usually execute line by line down...however JS you can call a function before it is written in the code.
+==Hoisting== : Other coding languages usually execute line by line down...however JS you can call a function before it is written in the code 
+
+ - (while varibles will say undefined).
+ - this is called Hoisting
+
+
+
+#### Conceptual Aside: JavaScript and 'undefined'
+
+undefined !== not defined
+
+
+
+#### Conceptual Aside: Single Threaded, Synchronous Execution
+
+==Single Threaded== : one command at a time
+
+==Synchronous== : one line at a time
+
+JavaScript is single threaded synchronous execution in its behavior
+
+
+
+#### Function Invocation and the Execution Stack
+
+==Invocation== : calling a function (In JS by using parentheses() )
+
+
+
+
+
+
+
